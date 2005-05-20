@@ -1,15 +1,18 @@
 Summary:	GNOME Power Manager
 Name:		gnome-power
 Version:	0.0.3
-Release:	0.1
+Release:	0.2
 Epoch:		0
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
 # Source0-md5:	0f352d463b251a7b8b8a90a82627bb52
 URL:		http://gnome-power.sourceforge.net/
-BuildRequires:	libgnomeui-devel
 BuildRequires:	hal-devel >= 0.5.2
+BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	libwnck-devel >= 2.10.0
+BuildRequires:	rpmbuild(macros) >= 1.197
+Requires(post,preun):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,7 +37,7 @@ Uses of GNOME Power Manager infrastructure
   starting or screen blanking.
 
 %prep
-%setup	-q	-n %{name}
+%setup -q -n %{name}
 
 %build
 autoreconf -i
