@@ -1,4 +1,3 @@
-
 Summary:	GNOME Power Manager
 Name:		gnome-power
 Version:	0.0.3
@@ -17,20 +16,22 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Uses of GNOME Power Manager infrastructure
 - A dialogue that warns the user when on UPS power, that automatically
   begins a kind shutdown when the power gets critically low.
-- An icon that allows a user to dim the LCD screen with a slider, and does
-  do automatically when going from mains to battery power on a laptop.
+- An icon that allows a user to dim the LCD screen with a slider, and
+  does do automatically when going from mains to battery power on a
+  laptop.
 - An icon, that when an additional battery is inserted, updates it's
-  display to show two batteries and recalculates how much time remaining.
-  Would work for wireless mouse and keyboards, UPS's and PDA's.
-- A daemon that does a clean shutdown when the battery is critically low or
-  does a soft-suspend when you close the lid on your laptop (or press the
-  "suspend" button on your PC).
-- Tell Totem to use a codec that does low quality processing to conserve
-  battery power.
-- Postpone indexing of databases (e.g. up2date) or other heavy operations
-  until on mains power.
-- Presentation programs / movie players don't want the screensaver starting
-  or screen blanking.
+  display to show two batteries and recalculates how much time
+  remaining. Would work for wireless mouse and keyboards, UPS's and
+  PDA's.
+- A daemon that does a clean shutdown when the battery is critically
+  low or does a soft-suspend when you close the lid on your laptop (or
+  press the "suspend" button on your PC).
+- Tell Totem to use a codec that does low quality processing to
+  conserve battery power.
+- Postpone indexing of databases (e.g. up2date) or other heavy
+  operations until on mains power.
+- Presentation programs / movie players don't want the screensaver
+  starting or screen blanking.
 
 %prep
 %setup	-q	-n %{name}
@@ -45,7 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
