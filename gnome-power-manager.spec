@@ -8,9 +8,11 @@ Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
 # Source0-md5:	0f352d463b251a7b8b8a90a82627bb52
 URL:		http://gnome-power.sourceforge.net/
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	hal-devel >= 0.5.2
 BuildRequires:	libgnomeui-devel >= 2.10.0
 BuildRequires:	libwnck-devel >= 2.10.0
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires(post,preun):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
