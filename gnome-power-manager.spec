@@ -1,4 +1,5 @@
 Summary:	GNOME Power Manager
+Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power
 Version:	0.0.3
 Release:	0.2
@@ -37,6 +38,28 @@ Uses of GNOME Power Manager infrastructure
   operations until on mains power.
 - Presentation programs / movie players don't want the screensaver
   starting or screen blanking.
+
+%description -l pl
+Zastosowania infrastruktury zarz±dcy energii GNOME:
+- okno dialogowe ostrzegaj±ce u¿ytkownika o zasilaniu z UPS-a,
+  automatycznie rozpoczynaj±ce uprzejme zamykanie systemu, kiedy
+  zasilanie jest w stanie krytycznym
+- ikona umo¿liwiaj±ca u¿ytkownikowi przyciemnienie ekranu LCD przy
+  u¿yciu suwaka i robi to automatycznie przy prze³±czaniu z g³ównego
+  ¼ród³a zasilania na baterie w laptopie
+- ikona, która po do³o¿eniu dodatkowej baterii uaktualnia wska¼nik,
+  aby pokazywa³ dwie baterie i przelicza ilo¶æ pozosta³ego czasu;
+  powinna dzia³aæ dla bezprzewodowych myszy i klawiatur, UPS-ów i PDA
+- demon wykonuj±cy czyste zamkniêcie systemu kiedy bateria jest w
+  stanie krytycznym i wykonuj±cy zamro¿enie systemu (soft-suspend)
+  przy zamykaniu pokrywy laptopa (albo naci¶niêciu przycisku
+  "suspend")
+- informowanie Totema, aby u¿ywa³ kodeka o ni¿szej jako¶ci w celu
+  zaoszczêdzenia energii baterii
+- wstrzymywanie indeksowania baz danych (np. up2date) i innych
+  ciê¿kich operacji do czasu pod³±czenia g³ównego ¼ród³a zasilania
+- zapobieganie uruchomienia screensaverów i wygaszaniu ekranu podczas
+  dzia³ania programów prezentacyjnych i odtwarzaczy filmów
 
 %prep
 %setup -q -n %{name}
