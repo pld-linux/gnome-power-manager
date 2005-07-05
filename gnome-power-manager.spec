@@ -9,6 +9,7 @@ Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
 # Source0-md5:	db310dadcc958a781a2752a6a7748e60
 Patch0:		%{name}-schemas.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://gnome-power.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -67,6 +68,7 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
