@@ -8,10 +8,13 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
 # Source0-md5:	db310dadcc958a781a2752a6a7748e60
+Patch0:		%{name}-schemas.patch
 URL:		http://gnome-power.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
+BuildRequires:	automake
 BuildRequires:	hal-devel >= 0.5.2
 BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -63,9 +66,14 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-autoreconf -i
+%{__libtoolize}
+%{__aclocal}
+%{__autoheader}
+%{__automake}
+%{__autoconf}
 %configure
 %{__make}
 
@@ -74,6 +82,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# for future use
+#%%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -84,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %preun
 %gconf_schema_uninstall gnome-power.schemas
 
+#%%files -f %{name}.lang
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
