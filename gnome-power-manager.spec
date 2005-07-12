@@ -1,15 +1,14 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power
-Version:	0.0.5
-Release:	0.1
+Version:	0.1.0
+Release:	1
 Epoch:		0
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
-# Source0-md5:	db310dadcc958a781a2752a6a7748e60
-Patch0:		%{name}-schemas.patch
-Patch1:		%{name}-desktop.patch
+# Source0-md5:	38bffb73974c355a1d602470b0c92d9d
+Patch0:		%{name}-desktop.patch
 URL:		http://gnome-power.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -68,7 +67,6 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -85,8 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# for future use
-#%%find_lang %{name} --all-name
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -97,11 +94,11 @@ rm -rf $RPM_BUILD_ROOT
 %preun
 %gconf_schema_uninstall gnome-power.schemas
 
-#%%files -f %{name}.lang
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/*
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_datadir}/%{name}
 %{_desktopdir}/*
