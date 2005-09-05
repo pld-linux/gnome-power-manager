@@ -7,7 +7,7 @@ Epoch:		0
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
-# Source0-md5:	178f4502fd70ad2a7ab17b9e8a2b3f12
+# Source0-md5:	40d5fe83a0f3027283568edc5034a649
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-am.patch
 URL:		http://gnome-power.sourceforge.net/
