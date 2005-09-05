@@ -1,0 +1,15 @@
+--- gnome-power-manager-0.2.0/src/Makefile.am.orig	2005-08-20 23:56:10.000000000 +0100
++++ gnome-power-manager-0.2.0/src/Makefile.am	2005-09-03 10:11:11.000000000 +0100
+@@ -49,10 +49,10 @@
+ 
+ if HAVE_LIBNOTIFY
+ gnome_power_preferences_LDADD =				\
+-	$(LIBNOTIFY_LIBS) $(GLIB_LIBS) $(GNOME_LIBS) $(HAL_LIBS)
++	$(LIBNOTIFY_LIBS) $(GLIB_LIBS) $(GNOME_LIBS) $(HAL_LIBS) $(DBUS_LIBS)
+ else
+ gnome_power_preferences_LDADD =				\
+-	$(GLIB_LIBS) $(GNOME_LIBS) $(HAL_LIBS)
++	$(GLIB_LIBS) $(GNOME_LIBS) $(HAL_LIBS) $(DBUS_LIBS)
+ endif
+ 
+ gnome_power_manager_SOURCES =				\
