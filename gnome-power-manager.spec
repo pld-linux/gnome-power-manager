@@ -1,23 +1,25 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
-Name:		gnome-power
-Version:	0.1.0
+Name:		gnome-power-manager
+Version:	0.2.0
 Release:	1
 Epoch:		0
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
-# Source0-md5:	38bffb73974c355a1d602470b0c92d9d
+# Source0-md5:	178f4502fd70ad2a7ab17b9e8a2b3f12
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-am.patch
 URL:		http://gnome-power.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	hal-devel >= 0.5.2
+BuildRequires:	hal-devel >= 0.5.4
 BuildRequires:	libgnomeui-devel >= 2.10.0
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
+Obsoletes:		gnome-power
 Requires(post,preun):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,6 +69,7 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -99,6 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/*
+%{_mandir}/man1/*
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_datadir}/%{name}
 %{_desktopdir}/*
