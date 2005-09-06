@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
 Version:	0.2.0
-Release:	1
+Release:	2
 Epoch:		0
 License:	GPL v2
 Group:		X11/Applications
@@ -92,10 +92,10 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install gnome-power.schemas
+%gconf_schema_install gnome-power-manager.schemas
 
 %preun
-%gconf_schema_uninstall gnome-power.schemas
+%gconf_schema_uninstall gnome-power-manager.schemas
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
