@@ -1,15 +1,14 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	0.2.0
-Release:	2
+Version:	0.2.2.1
+Release:	1
 Epoch:		0
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
-# Source0-md5:	40d5fe83a0f3027283568edc5034a649
+# Source0-md5:	8881ced0581ebe69103dd78c7a081262
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-am.patch
 URL:		http://gnome-power.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -69,7 +68,6 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
