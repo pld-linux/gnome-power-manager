@@ -12,6 +12,11 @@ Patch0:		%{name}-desktop.patch
 URL:		http://gnome-power.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	dbus-devel >= 0.35.2
+BuildRequires:	dbus-glib-devel >= 0.35.2
+BuildRequires:	docbook-dtd41-sgml
+BuildRequires:	docbook-utils
+BuildRequires:	glib2-devel
 BuildRequires:	hal-devel >= 0.5.4
 BuildRequires:	libgnomeui-devel >= 2.10.0
 BuildRequires:	libtool
