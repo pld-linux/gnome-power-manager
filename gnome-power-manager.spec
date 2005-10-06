@@ -1,13 +1,16 @@
+#
+# TODO:
+# - provide a PLD package for libnotify for nice information popups
+#
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	0.2.2.1
-Release:	1
-Epoch:		0
+Version:	0.2.6
+Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
-# Source0-md5:	8881ced0581ebe69103dd78c7a081262
+# Source0-md5:	ac4aa565a8db05346e4e58c7dd595fbb
 Patch0:		%{name}-desktop.patch
 URL:		http://gnome-power.sourceforge.net/
 BuildRequires:	autoconf >= 2.52
@@ -105,6 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/*
+%{_datadir}/dbus-1/services/*.service
 %{_mandir}/man1/*
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_datadir}/%{name}
