@@ -22,12 +22,14 @@ BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
 BuildRequires:	hal-devel >= 0.5.4
 BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	libnotify-devel >= 0.2.1
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Obsoletes:		gnome-power
 Requires(post,preun):	GConf2
+Requires:	notification-daemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
