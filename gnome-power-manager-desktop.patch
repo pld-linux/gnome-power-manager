@@ -1,6 +1,6 @@
 diff -aurN gnome-power-0.0.5.orig/gnome-power-preferences.desktop.in gnome-power-0.0.5/gnome-power-preferences.desktop.in
---- gnome-power-0.0.5.orig/gnome-power-preferences.desktop.in	2005-06-18 18:33:51.000000000 +0200
-+++ gnome-power-0.0.5/gnome-power-preferences.desktop.in	2005-07-05 15:30:46.439939368 +0200
+--- gnome-power-0.0.5.orig/data/gnome-power-preferences.desktop.in	2005-06-18 18:33:51.000000000 +0200
++++ gnome-power-0.0.5/data/gnome-power-preferences.desktop.in	2005-07-05 15:30:46.439939368 +0200
 @@ -6,5 +6,5 @@
  Exec=gnome-power-preferences
  Terminal=false
