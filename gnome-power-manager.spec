@@ -23,8 +23,11 @@ BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
+Requires(post,postun):	scrollkeeper
+Requires:	gnome-session >= 2.13.90
 Requires:	notification-daemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -92,16 +95,20 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
-%find_lang %{name} --all-name
+%find_lang %{name} --all-name --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install gnome-power-manager.schemas
+%scrollkeeper_update_post
 
 %preun
 %gconf_schema_uninstall gnome-power-manager.schemas
+
+%postun
+%scrollkeeper_update_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -111,5 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/services/*.service
 %{_mandir}/man1/*
 %{_datadir}/%{name}
+%{_datadir}/autostart/gnome-power-manager.desktop
 %{_desktopdir}/*
+%{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
 %{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
