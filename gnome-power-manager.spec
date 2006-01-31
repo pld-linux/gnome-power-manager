@@ -1,18 +1,18 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	0.3.4
+Version:	2.13.5
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	2c8804456af52c8b9dbf25a058fe849a
+Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.13/%{name}-%{version}.tar.bz2
+# Source0-md5:	beb9a4d1f7822ee2117503de4dd95a2e
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	dbus-devel >= 0.35.2
-BuildRequires:	dbus-glib-devel >= 0.35.2
+BuildRequires:	dbus-devel >= 0.50
+BuildRequires:	dbus-glib-devel >= 0.50
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
@@ -23,7 +23,7 @@ BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-Obsoletes:		gnome-power
+Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
 Requires:	notification-daemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -89,6 +89,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --all-name
 
