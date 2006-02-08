@@ -5,7 +5,7 @@ Version:	0.3.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/gnome-power/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/0.3/%{name}-%{version}.tar.gz
 # Source0-md5:	7a36ed3af51fe005dbd12a88f09d7c13
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
