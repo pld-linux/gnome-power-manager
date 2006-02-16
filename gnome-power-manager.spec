@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.13.5
+Version:	2.13.90
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	beb9a4d1f7822ee2117503de4dd95a2e
+# Source0-md5:	7ae17a222d83fc8bc04765bfd02287aa
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
@@ -84,7 +84,9 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 %{__autoheader}
 %{__automake}
 %{__autoconf}
-%configure
+%configure \
+	--disable-schemas-install \
+	--disable-scrollkeeper
 %{__make}
 
 %install
@@ -115,10 +117,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/*
+/etc/xdg/autostart/gnome-power-manager.desktop
 %{_datadir}/dbus-1/services/*.service
 %{_mandir}/man1/*
 %{_datadir}/%{name}
-%{_datadir}/autostart/gnome-power-manager.desktop
 %{_desktopdir}/*
 %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
 %{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
