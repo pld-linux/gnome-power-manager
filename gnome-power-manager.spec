@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.13.92
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.13/%{name}-%{version}.tar.bz2
@@ -27,7 +27,7 @@ BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
-Requires:	gnome-session >= 2.13.90
+Requires:	gnome-session >= 2.13.92
 Requires:	notification-daemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -93,7 +93,8 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	autostartdir=%{_datadir}/gnome/autostart
 
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
@@ -117,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/*
-/etc/xdg/autostart/gnome-power-manager.desktop
+%{_datadir}/gnome/autostart/gnome-power-manager.desktop
 %{_datadir}/dbus-1/services/*.service
 %{_mandir}/man1/*
 %{_datadir}/%{name}
