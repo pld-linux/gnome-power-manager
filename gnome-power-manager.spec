@@ -1,31 +1,33 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	0.3.1
+Version:	2.14.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/0.3/%{name}-%{version}.tar.gz
-# Source0-md5:	7a36ed3af51fe005dbd12a88f09d7c13
+Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	d98f7e2a920e3d94dd8b65b476cd88ce
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	dbus-devel >= 0.35.2
-BuildRequires:	dbus-glib-devel >= 0.35.2
+BuildRequires:	dbus-devel >= 0.50
+BuildRequires:	dbus-glib-devel >= 0.50
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
-BuildRequires:	hal-devel >= 0.5.4
+BuildRequires:	hal-devel >= 0.5.6
 BuildRequires:	libgnomeui-devel >= 2.10.0
-#BuildRequires:	libnotify-devel >= 0.2.1
+BuildRequires:	libnotify-devel >= 0.3.2
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	xorg-lib-libXres-devel
-Obsoletes:		gnome-power
+BuildRequires:	scrollkeeper
+Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
+Requires(post,postun):	scrollkeeper
+Requires:	gnome-session >= 2.13.92
 Requires:	notification-daemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -83,33 +85,43 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 %{__automake}
 %{__autoconf}
 %configure \
-	--disable-libnotify
+	--disable-schemas-install \
+	--disable-scrollkeeper
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	autostartdir=%{_datadir}/gnome/autostart
 
-%find_lang %{name} --all-name
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+
+%find_lang %{name} --all-name --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install gnome-power-manager.schemas
+%scrollkeeper_update_post
 
 %preun
 %gconf_schema_uninstall gnome-power-manager.schemas
+
+%postun
+%scrollkeeper_update_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/*
+%{_datadir}/gnome/autostart/gnome-power-manager.desktop
 %{_datadir}/dbus-1/services/*.service
 %{_mandir}/man1/*
 %{_datadir}/%{name}
 %{_desktopdir}/*
+%{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
 %{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
