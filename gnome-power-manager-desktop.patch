@@ -1,10 +1,12 @@
-diff -aurN gnome-power-0.0.5.orig/gnome-power-preferences.desktop.in gnome-power-0.0.5/gnome-power-preferences.desktop.in
---- gnome-power-0.0.5.orig/data/gnome-power-preferences.desktop.in	2005-06-18 18:33:51.000000000 +0200
-+++ gnome-power-0.0.5/data/gnome-power-preferences.desktop.in	2005-07-05 15:30:46.439939368 +0200
-@@ -6,5 +6,5 @@
+diff -aurN gnome-power-manager-2.14.1.org/data/gnome-power-preferences.desktop.in gnome-power-manager-2.14.1/data/gnome-power-preferences.desktop.in
+--- gnome-power-manager-2.14.1.org/data/gnome-power-preferences.desktop.in	2006-03-23 12:49:05.000000000 +0100
++++ gnome-power-manager-2.14.1/data/gnome-power-preferences.desktop.in	2006-04-09 16:56:31.852544368 +0200
+@@ -6,7 +6,7 @@
  Exec=gnome-power-preferences
  Terminal=false
  Type=Application
--Categories=Application;Settings;
+-Categories=Settings;
 +Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
  OnlyShowIn=GNOME;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-power-manager
