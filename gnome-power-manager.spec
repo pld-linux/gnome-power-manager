@@ -17,17 +17,17 @@ BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
 BuildRequires:	hal-devel >= 0.5.6
-BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libnotify-devel >= 0.3.2
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.10.0
+BuildRequires:	libwnck-devel >= 2.14.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
-Requires:	gnome-session >= 2.13.92
+Requires:	gnome-session >= 2.14.0
 Requires:	notification-daemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
