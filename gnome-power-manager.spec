@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.14.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.14/%{name}-%{version}.tar.bz2
@@ -27,6 +27,7 @@ BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
+Requires:	dbus-X11
 Requires:	gnome-session >= 2.14.0
 Requires:	notification-daemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
