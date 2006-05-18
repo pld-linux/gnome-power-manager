@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.14.3
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.14/%{name}-%{version}.tar.bz2
@@ -11,14 +11,14 @@ Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	dbus-devel >= 0.50
-BuildRequires:	dbus-glib-devel >= 0.50
+BuildRequires:	dbus-devel >= 0.60
+BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel
 BuildRequires:	hal-devel >= 0.5.6
 BuildRequires:	libgnomeui-devel >= 2.14.0
-BuildRequires:	libnotify-devel >= 0.3.2
+BuildRequires:	libnotify-devel >= 0.4.0
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.14.0
 BuildRequires:	pkgconfig
@@ -27,9 +27,9 @@ BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
-Requires:	dbus-X11
+Requires:	dbus-X11 >= 0.60
 Requires:	gnome-session >= 2.14.0
-Requires:	notification-daemon
+Requires:	notification-daemon >= 0.3.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
