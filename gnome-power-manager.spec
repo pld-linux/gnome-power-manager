@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.14.3
-Release:	3
+Version:	2.15.2
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	431448b680b47df68a42f233cc2699fe
+Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	8d9a6dfcc25d191d373f37e859a01b9f
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
@@ -15,20 +15,21 @@ BuildRequires:	dbus-devel >= 0.60
 BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
-BuildRequires:	glib2-devel
-BuildRequires:	hal-devel >= 0.5.6
-BuildRequires:	libgnomeui-devel >= 2.14.0
+BuildRequires:	glib2-devel >= 1:2.11.2
+BuildRequires:	hal-devel >= 0.5.7
+BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libnotify-devel >= 0.4.0
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.14.0
+BuildRequires:	libwnck-devel >= 2.14.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
+Requires(post,postun):	gtk+2 >= 2:2.9.2
 Requires(post,postun):	scrollkeeper
 Requires:	dbus-X11 >= 0.60
-Requires:	gnome-session >= 2.14.0
+Requires:	gnome-session >= 2.15.1
 Requires:	notification-daemon >= 0.3.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -97,8 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	autostartdir=%{_datadir}/gnome/autostart
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
-
 %find_lang %{name} --all-name --with-gnome
 
 %clean
@@ -107,12 +106,14 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %gconf_schema_install gnome-power-manager.schemas
 %scrollkeeper_update_post
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 
 %preun
 %gconf_schema_uninstall gnome-power-manager.schemas
 
 %postun
 %scrollkeeper_update_postun
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -124,5 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_datadir}/%{name}
 %{_desktopdir}/*
+%{_iconsdir}/hicolor/*/*/*
+%dir %{_omf_dest_dir}/gnome-power-manager
 %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
 %{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
