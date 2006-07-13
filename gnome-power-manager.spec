@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.15.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.15/%{name}-%{version}.tar.bz2
@@ -16,6 +16,7 @@ BuildRequires:	dbus-glib-devel >= 0.60
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel >= 1:2.11.2
+BuildRequires:	gnome-doc-utils
 BuildRequires:	hal-devel >= 0.5.7
 BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libnotify-devel >= 0.4.0
