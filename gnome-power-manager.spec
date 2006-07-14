@@ -1,36 +1,34 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.15.3
-Release:	2
+Version:	2.15.4
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	7c0634be8699156d9546fc92ba8c7ccf
+# Source0-md5:	0fa269fc8c91b5ff6152b6753b3fa61d
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	dbus-devel >= 0.60
-BuildRequires:	dbus-glib-devel >= 0.60
+BuildRequires:	dbus-glib-devel >= 0.62
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
-BuildRequires:	glib2-devel >= 1:2.11.2
+BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	gnome-doc-utils
 BuildRequires:	hal-devel >= 0.5.7
-BuildRequires:	libgnomeui-devel >= 2.15.1
-BuildRequires:	libnotify-devel >= 0.4.0
+BuildRequires:	libgnomeui-devel >= 2.15.2
+BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.14.2
+BuildRequires:	libwnck-devel >= 2.15.4
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
-Requires(post,postun):	gtk+2 >= 2:2.9.2
+Requires(post,postun):	gtk+2 >= 2:2.10.0
 Requires(post,postun):	scrollkeeper
-Requires:	dbus-X11 >= 0.60
-Requires:	gnome-session >= 2.15.1
+Requires:	gnome-session >= 2.15.4
 Requires:	notification-daemon >= 0.3.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -87,6 +85,7 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 %{__autoheader}
 %{__automake}
 %{__autoconf}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--disable-schemas-install \
 	--disable-scrollkeeper
@@ -129,4 +128,5 @@ gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 %{_iconsdir}/hicolor/*/*/*
 %dir %{_omf_dest_dir}/gnome-power-manager
 %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
+%lang(ru) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-ru.omf
 %{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
