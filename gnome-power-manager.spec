@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.15.4
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.15/%{name}-%{version}.tar.bz2
@@ -88,7 +88,8 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--disable-schemas-install \
-	--disable-scrollkeeper
+	--disable-scrollkeeper \
+	--disable-policykit
 %{__make}
 
 %install
