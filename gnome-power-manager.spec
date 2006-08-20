@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.15.91
+Version:	2.15.92
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	1096d20879e5180912885acf22ff5741
+# Source0-md5:	21403dd4974f7cc5748417e1c7a04632
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
@@ -14,7 +14,7 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
-BuildRequires:	glib2-devel >= 1:2.12.1
+BuildRequires:	glib2-devel >= 1:2.12.2
 BuildRequires:	gnome-doc-utils
 BuildRequires:	hal-devel >= 0.5.7.1
 BuildRequires:	libgnomeui-devel >= 2.15.91
@@ -26,7 +26,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
-Requires(post,postun):	gtk+2 >= 2:2.10.1
+Requires(post,postun):	gtk+2 >= 2:2.10.2
 Requires(post,postun):	scrollkeeper
 Requires:	gnome-session >= 2.15.91
 Requires:	notification-daemon >= 0.3.5
@@ -86,8 +86,6 @@ Zastosowania infrastruktury zarz±dcy energii GNOME:
 %{__automake}
 %{__autoconf}
 %configure \
-	--disable-icon-framing \
-	--disable-policykit \
 	--disable-schemas-install \
 	--disable-scrollkeeper
 %{__make}
