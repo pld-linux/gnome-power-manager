@@ -123,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/services/*.service
 %{_mandir}/man1/*
 %{_datadir}/%{name}
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/*/*
 %dir %{_omf_dest_dir}/gnome-power-manager
 %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
