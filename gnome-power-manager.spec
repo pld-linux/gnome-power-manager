@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.16.1
+Version:	2.16.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	6798ee24e5e94befab5a7584c19771cb
+# Source0-md5:	e7af47f4d49f7a10728216922dc82b4b
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
@@ -17,16 +17,17 @@ BuildRequires:	docbook-utils
 BuildRequires:	glib2-devel >= 1:2.12.4
 BuildRequires:	gnome-doc-utils
 BuildRequires:	hal-devel >= 0.5.7.1
-BuildRequires:	libgnomeui-devel >= 2.16.0
+BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.16.0
+BuildRequires:	libwnck-devel >= 2.16.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
-Requires(post,postun):	gtk+2 >= 2:2.10.5
+Requires(post,postun):	gtk+2 >= 2:2.10.6
+Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires:	gnome-session >= 2.16.1
 Requires:	notification-daemon >= 0.3.5
