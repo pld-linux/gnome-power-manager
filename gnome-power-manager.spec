@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl):	Zarz±dca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.16.2
+Version:	2.16.3
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	e7af47f4d49f7a10728216922dc82b4b
+# Source0-md5:	48166c6aaf41f2225090517ae655d05d
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
@@ -14,22 +14,22 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
-BuildRequires:	glib2-devel >= 1:2.12.4
+BuildRequires:	glib2-devel >= 1:2.12.9
 BuildRequires:	gnome-doc-utils
 BuildRequires:	hal-devel >= 0.5.7.1
 BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libnotify-devel >= 0.4.2
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.16.2
+BuildRequires:	libwnck-devel >= 2.16.3
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
-Requires(post,postun):	gtk+2 >= 2:2.10.6
+Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
-Requires:	gnome-session >= 2.16.1
+Requires:	gnome-session >= 2.16.3
 Requires:	notification-daemon >= 0.3.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -118,13 +118,15 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_bindir}/*
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/*
+%attr(755,root,root) %{_bindir}/gnome-power-inhibit-test
+%attr(755,root,root) %{_bindir}/gnome-power-manager
+%attr(755,root,root) %{_bindir}/gnome-power-preferences
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/gnome-power-manager.conf
 %{_datadir}/gnome/autostart/gnome-power-manager.desktop
-%{_datadir}/dbus-1/services/*.service
-%{_mandir}/man1/*
-%{_datadir}/%{name}
-%{_desktopdir}/*.desktop
+%{_datadir}/dbus-1/services/gnome-power-manager.service
+%{_mandir}/man1/*.1*
+%{_datadir}/gnome-power-manager
+%{_desktopdir}/gnome-power-preferences.desktop
 %{_iconsdir}/hicolor/*/*/*
 %dir %{_omf_dest_dir}/gnome-power-manager
 %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
