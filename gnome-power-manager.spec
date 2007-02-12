@@ -1,5 +1,5 @@
 Summary:	GNOME Power Manager
-Summary(pl):	Zarz±dca energii dla GNOME
+Summary(pl.UTF-8):   ZarzÄ…dca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.16.3
 Release:	1
@@ -54,27 +54,27 @@ Uses of GNOME Power Manager infrastructure
 - Presentation programs / movie players don't want the screensaver
   starting or screen blanking.
 
-%description -l pl
-Zastosowania infrastruktury zarz±dcy energii GNOME:
-- okno dialogowe ostrzegaj±ce u¿ytkownika o zasilaniu z UPS-a,
-  automatycznie rozpoczynaj±ce uprzejme zamykanie systemu, kiedy
+%description -l pl.UTF-8
+Zastosowania infrastruktury zarzÄ…dcy energii GNOME:
+- okno dialogowe ostrzegajÄ…ce uÅ¼ytkownika o zasilaniu z UPS-a,
+  automatycznie rozpoczynajÄ…ce uprzejme zamykanie systemu, kiedy
   zasilanie jest w stanie krytycznym
-- ikona umo¿liwiaj±ca u¿ytkownikowi przyciemnienie ekranu LCD przy
-  u¿yciu suwaka i robi to automatycznie przy prze³±czaniu z g³ównego
-  ¼ród³a zasilania na baterie w laptopie
-- ikona, która po do³o¿eniu dodatkowej baterii uaktualnia wska¼nik,
-  aby pokazywa³ dwie baterie i przelicza ilo¶æ pozosta³ego czasu;
-  powinna dzia³aæ dla bezprzewodowych myszy i klawiatur, UPS-ów i PDA
-- demon wykonuj±cy czyste zamkniêcie systemu kiedy bateria jest w
-  stanie krytycznym i wykonuj±cy zamro¿enie systemu (soft-suspend)
-  przy zamykaniu pokrywy laptopa (albo naci¶niêciu przycisku
+- ikona umoÅ¼liwiajÄ…ca uÅ¼ytkownikowi przyciemnienie ekranu LCD przy
+  uÅ¼yciu suwaka i robi to automatycznie przy przeÅ‚Ä…czaniu z gÅ‚Ã³wnego
+  ÅºrÃ³dÅ‚a zasilania na baterie w laptopie
+- ikona, ktÃ³ra po doÅ‚oÅ¼eniu dodatkowej baterii uaktualnia wskaÅºnik,
+  aby pokazywaÅ‚ dwie baterie i przelicza iloÅ›Ä‡ pozostaÅ‚ego czasu;
+  powinna dziaÅ‚aÄ‡ dla bezprzewodowych myszy i klawiatur, UPS-Ã³w i PDA
+- demon wykonujÄ…cy czyste zamkniÄ™cie systemu kiedy bateria jest w
+  stanie krytycznym i wykonujÄ…cy zamroÅ¼enie systemu (soft-suspend)
+  przy zamykaniu pokrywy laptopa (albo naciÅ›niÄ™ciu przycisku
   "suspend")
-- informowanie Totema, aby u¿ywa³ kodeka o ni¿szej jako¶ci w celu
-  zaoszczêdzenia energii baterii
+- informowanie Totema, aby uÅ¼ywaÅ‚ kodeka o niÅ¼szej jakoÅ›ci w celu
+  zaoszczÄ™dzenia energii baterii
 - wstrzymywanie indeksowania baz danych (np. up2date) i innych
-  ciê¿kich operacji do czasu pod³±czenia g³ównego ¼ród³a zasilania
-- zapobieganie uruchomienia screensaverów i wygaszaniu ekranu podczas
-  dzia³ania programów prezentacyjnych i odtwarzaczy filmów
+  ciÄ™Å¼kich operacji do czasu podÅ‚Ä…czenia gÅ‚Ã³wnego ÅºrÃ³dÅ‚a zasilania
+- zapobieganie uruchomienia screensaverÃ³w i wygaszaniu ekranu podczas
+  dziaÅ‚ania programÃ³w prezentacyjnych i odtwarzaczy filmÃ³w
 
 %prep
 %setup -q
