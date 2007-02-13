@@ -1,5 +1,5 @@
 Summary:	GNOME Power Manager
-Summary(pl.UTF-8):   Zarządca energii dla GNOME
+Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.16.3
 Release:	1
