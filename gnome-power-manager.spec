@@ -1,36 +1,41 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.16.3
+Version:	2.18.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	48166c6aaf41f2225090517ae655d05d
+Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	089cfb86af712cacce16ac9617ab2b1c
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
-BuildRequires:	glib2-devel >= 1:2.12.9
+BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-doc-utils
+BuildRequires:	gnome-keyring-devel >= 0.8
+BuildRequires:	gnome-panel-devel >= 2.18.0
+BuildRequires:	gtk+2-devel >= 1:2.10.10
 BuildRequires:	hal-devel >= 0.5.7.1
-BuildRequires:	libgnomeui-devel >= 2.16.1
-BuildRequires:	libnotify-devel >= 0.4.2
+BuildRequires:	intltool >= 0.35.5
+BuildRequires:	libglade2-devel >= 2.6.0
+BuildRequires:	libgnomeui-devel >= 2.18.0
+BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.16.3
+BuildRequires:	libwnck-devel >= 2.18.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-Obsoletes:	gnome-power
 Requires(post,preun):	GConf2
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
-Requires:	gnome-session >= 2.16.3
+Requires:	gnome-session >= 2.18.0
 Requires:	notification-daemon >= 0.3.5
+Obsoletes:	gnome-power
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -118,18 +123,31 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_bindir}/gnome-power-inhibit-test
+%attr(755,root,root) %{_bindir}/gnome-brightness-applet
+%attr(755,root,root) %{_bindir}/gnome-inhibit-applet
+%attr(755,root,root) %{_bindir}/gnome-power-bugreport.sh
+%attr(755,root,root) %{_bindir}/gnome-power-cmd.sh
 %attr(755,root,root) %{_bindir}/gnome-power-manager
 %attr(755,root,root) %{_bindir}/gnome-power-preferences
+%attr(755,root,root) %{_bindir}/gnome-power-statistics
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/gnome-power-manager.conf
+%{_libdir}/bonobo/servers/GNOME_BrightnessApplet.server
+%{_libdir}/bonobo/servers/GNOME_InhibitApplet.server
 %{_datadir}/gnome/autostart/gnome-power-manager.desktop
 %{_datadir}/dbus-1/services/gnome-power-manager.service
+%{_datadir}/gnome-2.0/ui/GNOME_BrightnessApplet.xml
+%{_datadir}/gnome-2.0/ui/GNOME_InhibitApplet.xml
 %{_mandir}/man1/*.1*
 %{_datadir}/gnome-power-manager
 %{_desktopdir}/gnome-power-preferences.desktop
+%{_desktopdir}/gnome-power-statistics.desktop
 %{_iconsdir}/hicolor/*/*/*
 %dir %{_omf_dest_dir}/gnome-power-manager
 %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
+%lang(es) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-es.omf
+%lang(fr) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-fr.omf
+%lang(hu) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-hu.omf
+%lang(pa) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-pa.omf
 %lang(ru) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-ru.omf
 %lang(sv) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-sv.omf
 %{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
