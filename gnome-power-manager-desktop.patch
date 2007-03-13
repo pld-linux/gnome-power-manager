@@ -5,8 +5,8 @@ diff -aurN gnome-power-manager-2.14.1.org/data/gnome-power-preferences.desktop.i
  Exec=gnome-power-preferences
  Terminal=false
  Type=Application
--Categories=Settings;
-+Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
+-Categories=Settings;X-GNOME-SystemSettings;
++Categories=GTK;GNOME;Settings;X-GNOME-SystemSettings;AdvancedSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=gnome-power-manager
