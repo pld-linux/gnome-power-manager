@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.18.0
+Version:	2.18.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	089cfb86af712cacce16ac9617ab2b1c
+# Source0-md5:	8cc94654608f649214aa3a0c9b792fe5
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
