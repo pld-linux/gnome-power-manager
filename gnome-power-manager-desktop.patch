@@ -1,12 +1,24 @@
-diff -aurN gnome-power-manager-2.14.1.org/data/gnome-power-preferences.desktop.in gnome-power-manager-2.14.1/data/gnome-power-preferences.desktop.in
---- gnome-power-manager-2.14.1.org/data/gnome-power-preferences.desktop.in	2006-03-23 12:49:05.000000000 +0100
-+++ gnome-power-manager-2.14.1/data/gnome-power-preferences.desktop.in	2006-04-09 16:56:31.852544368 +0200
+diff -urN gnome-power-manager-2.18.1/data/gnome-power-preferences.desktop.in gnome-power-manager-2.18.1.new/data/gnome-power-preferences.desktop.in
+--- gnome-power-manager-2.18.1/data/gnome-power-preferences.desktop.in	2007-03-04 18:53:44.000000000 +0100
++++ gnome-power-manager-2.18.1.new/data/gnome-power-preferences.desktop.in	2007-04-04 22:54:46.000000000 +0200
 @@ -6,7 +6,7 @@
  Exec=gnome-power-preferences
  Terminal=false
  Type=Application
 -Categories=Settings;X-GNOME-SystemSettings;
-+Categories=GTK;GNOME;Settings;X-GNOME-SystemSettings;AdvancedSettings;X-Capplet;
++Categories=GTK;GNOME;Settings;X-GNOME-SystemSettings;X-Capplet;
  OnlyShowIn=GNOME;
+ StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=gnome-power-manager
+diff -urN gnome-power-manager-2.18.1/data/gnome-power-statistics.desktop.in gnome-power-manager-2.18.1.new/data/gnome-power-statistics.desktop.in
+--- gnome-power-manager-2.18.1/data/gnome-power-statistics.desktop.in	2007-03-04 18:53:44.000000000 +0100
++++ gnome-power-manager-2.18.1.new/data/gnome-power-statistics.desktop.in	2007-04-04 22:56:54.000000000 +0200
+@@ -6,7 +6,7 @@
+ Exec=gnome-power-statistics
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Application;System;X-Red-Hat-Base;
++Categories=GNOME;GTK;System;Monitor;
+ OnlyShowIn=GNOME;
+ StartupNotify=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME
