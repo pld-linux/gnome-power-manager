@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.18.1
-Release:	2
+Version:	2.18.2
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	8cc94654608f649214aa3a0c9b792fe5
+# Source0-md5:	0f8412b9c6d800886d2ba479a47c73ea
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
@@ -14,15 +14,15 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
-BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-common >= 2.18.0
 BuildRequires:	gnome-doc-utils
-BuildRequires:	gnome-keyring-devel >= 0.8
+BuildRequires:	gnome-keyring-devel >= 0.8.1
 BuildRequires:	gnome-panel-devel >= 2.18.0
 BuildRequires:	gtk+2-devel >= 1:2.10.10
 BuildRequires:	hal-devel >= 0.5.7.1
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 2.6.0
-BuildRequires:	libgnomeui-devel >= 2.18.0
+BuildRequires:	libgnomeui-devel >= 2.18.1
 BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.18.0
