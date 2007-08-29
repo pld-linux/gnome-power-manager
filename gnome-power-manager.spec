@@ -1,13 +1,15 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.18.3
+Version:	2.19.6
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	3341092fc87ced400631c3d635979426
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.19/%{name}-%{version}.tar.bz2
+# Source0-md5:	e8eb02cc9169ba459f4d347110835ef4
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-popt.patch
+Patch2:		%{name}-intltool.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -84,6 +86,8 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -130,7 +134,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-power-manager
 %attr(755,root,root) %{_bindir}/gnome-power-preferences
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dbus-1/system.d/gnome-power-manager.conf
 %{_libdir}/bonobo/servers/GNOME_BrightnessApplet.server
 %{_libdir}/bonobo/servers/GNOME_InhibitApplet.server
 %{_datadir}/gnome/autostart/gnome-power-manager.desktop
