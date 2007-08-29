@@ -1,0 +1,40 @@
+--- gnome-power-manager-2.19.6/src/gpm-notify.c~	2007-07-20 15:26:38.000000000 +0200
++++ gnome-power-manager-2.19.6/src/gpm-notify.c	2007-08-29 05:52:05.238183608 +0200
+@@ -34,6 +34,7 @@
+ #ifdef HAVE_UNISTD_H
+ #include <unistd.h>
+ #endif /* HAVE_UNISTD_H */
++#include <libgnome/gnome-i18n.h>
+ #include <libgnome/libgnome.h>
+ 
+ #include <glib/gi18n.h>
+--- gnome-power-manager-2.19.6/src/gpm-control.c~	2007-07-26 14:22:55.000000000 +0200
++++ gnome-power-manager-2.19.6/src/gpm-control.c	2007-08-29 05:58:49.176560277 +0200
+@@ -27,6 +27,7 @@
+ #include <stdio.h>
+ #include <time.h>
+ #include <errno.h>
++#include <libgnome/gnome-i18n.h>
+ #include <libgnomeui/gnome-client.h>
+ 
+ #include <string.h>
+--- gnome-power-manager-2.19.6/applets/brightness/brightness-applet.c~	2007-07-17 23:26:42.000000000 +0200
++++ gnome-power-manager-2.19.6/applets/brightness/brightness-applet.c	2007-08-29 06:12:07.054838943 +0200
+@@ -27,6 +27,7 @@
+ 
+ #include <stdio.h>
+ #include <string.h>
++#include <libgnome/gnome-i18n.h>
+ #include <panel-applet.h>
+ #include <gtk/gtk.h>
+ #include <gtk/gtkbox.h>
+--- gnome-power-manager-2.19.6/applets/inhibit/inhibit-applet.c~	2007-07-24 22:39:25.000000000 +0200
++++ gnome-power-manager-2.19.6/applets/inhibit/inhibit-applet.c	2007-08-29 06:18:47.493749476 +0200
+@@ -27,6 +27,7 @@
+ 
+ #include <stdio.h>
+ #include <string.h>
++#include <libgnome/gnome-i18n.h>
+ #include <panel-applet.h>
+ #include <gtk/gtk.h>
+ #include <gtk/gtkbox.h>
