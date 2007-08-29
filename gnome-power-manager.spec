@@ -18,16 +18,18 @@ BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	gnome-common >= 2.18.0
 BuildRequires:	gnome-doc-utils
-BuildRequires:	gnome-keyring-devel >= 0.8.1
-BuildRequires:	gnome-panel-devel >= 2.18.0
-BuildRequires:	gtk+2-devel >= 1:2.10.10
-BuildRequires:	hal-devel >= 0.5.7.1
-BuildRequires:	intltool >= 0.35.5
-BuildRequires:	libglade2-devel >= 2.6.0
-BuildRequires:	libgnomeui-devel >= 2.18.1
+BuildRequires:	gnome-keyring-devel >= 2.19.91
+BuildRequires:	gnome-panel-devel >= 2.19.6
+BuildRequires:	gtk+2-devel >= 1:2.10.14
+BuildRequires:	gtkunique-devel >= 0.9.1
+BuildRequires:	gstreamer-devel >= 0.10.14
+BuildRequires:	hal-devel >= 0.5.9
+BuildRequires:	intltool >= 0.36.1
+BuildRequires:	libglade2-devel >= 1:2.6.2
+BuildRequires:	libgnomeui-devel >= 2.19.1
 BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.18.0
+BuildRequires:	libwnck-devel >= 2.19.90
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
@@ -35,7 +37,7 @@ Requires(post,preun):	GConf2
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
-Requires:	gnome-session >= 2.18.0
+Requires:	gnome-session >= 2.19.90
 Requires:	notification-daemon >= 0.3.5
 Obsoletes:	gnome-power
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -96,6 +98,7 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %{__automake}
 %{__autoconf}
 %configure \
+	--enable-xevents \
 	--disable-schemas-install \
 	--disable-scrollkeeper
 %{__make}
@@ -147,9 +150,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/*/*
 %dir %{_omf_dest_dir}/gnome-power-manager
 %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
+%lang(ca) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-ca.omf
 %lang(es) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-es.omf
 %lang(fr) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-fr.omf
 %lang(hu) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-hu.omf
+%lang(it) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-it.omf
 %lang(pa) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-pa.omf
 %lang(ru) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-ru.omf
 %lang(sv) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-sv.omf
