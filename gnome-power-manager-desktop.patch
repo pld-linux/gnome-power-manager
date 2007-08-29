@@ -17,7 +17,7 @@ diff -urN gnome-power-manager-2.18.1/data/gnome-power-statistics.desktop.in gnom
  Exec=gnome-power-statistics
  Terminal=false
  Type=Application
--Categories=GNOME;GTK;Application;System;X-Red-Hat-Base;
+-Categories=GNOME;GTK;System;X-Red-Hat-Base;
 +Categories=GNOME;GTK;System;Monitor;
  OnlyShowIn=GNOME;
  StartupNotify=true
