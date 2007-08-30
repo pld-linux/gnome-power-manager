@@ -9,7 +9,6 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.19/%{name}
 # Source0-md5:	e8eb02cc9169ba459f4d347110835ef4
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-popt.patch
-Patch2:		%{name}-intltool.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -89,10 +88,10 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
+%{__intltoolize}
 %{__aclocal}
 %{__autoheader}
 %{__automake}
