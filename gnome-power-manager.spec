@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.19.6
+Version:	2.19.92
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.19/%{name}-%{version}.tar.bz2
-# Source0-md5:	e8eb02cc9169ba459f4d347110835ef4
+# Source0-md5:	4fa8c70075ac56a22824b2d751df2302
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-popt.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
@@ -154,6 +154,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-fr.omf
 %lang(hu) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-hu.omf
 %lang(it) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-it.omf
+%lang(oc) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-oc.omf
 %lang(pa) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-pa.omf
 %lang(ru) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-ru.omf
 %lang(sv) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-sv.omf
