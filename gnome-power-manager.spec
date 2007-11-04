@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.20.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.20/%{name}-%{version}.tar.bz2
@@ -39,6 +39,8 @@ Requires(post,postun):	scrollkeeper
 Requires:	gnome-session >= 2.19.90
 Requires:	notification-daemon >= 0.3.5
 Obsoletes:	gnome-power
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -109,6 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	autostartdir=%{_datadir}/gnome/autostart
 
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name} --all-name --with-gnome
 
 %clean
