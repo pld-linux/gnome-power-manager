@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.20.0
-Release:	2
+Version:	2.20.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	881f012dcbdff38a85603393cb9d39bb
+# Source0-md5:	6bf1bd7fba0ab8362d6ae1919dd7a732
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-popt.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
@@ -15,28 +15,30 @@ BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
-BuildRequires:	gnome-common >= 2.18.0
+BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-doc-utils
-BuildRequires:	gnome-keyring-devel >= 2.19.91
-BuildRequires:	gnome-panel-devel >= 2.19.6
-BuildRequires:	gtk+2-devel >= 1:2.10.14
+BuildRequires:	gnome-keyring-devel >= 2.20.0
+BuildRequires:	gnome-panel-devel >= 2.20.0
+BuildRequires:	gtk+2-devel >= 1:2.12.0
 BuildRequires:	gtkunique-devel >= 0.9.1
 BuildRequires:	gstreamer-devel >= 0.10.14
 BuildRequires:	hal-devel >= 0.5.9
 BuildRequires:	intltool >= 0.36.1
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.19.1
+BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.20.0
 BuildRequires:	pkgconfig
+# support for --with-omf in find-lang.sh
+BuildRequires:	rpm-build >= 4.4.9-10
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Requires(post,preun):	GConf2
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
-Requires:	gnome-session >= 2.19.90
+Requires:	gnome-session >= 2.20.0
 Requires:	notification-daemon >= 0.3.5
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
@@ -91,6 +93,9 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %patch0 -p1
 %patch1 -p1
 
+sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+mv -f po/sr\@{Latn,latin}.po
+
 %build
 %{__libtoolize}
 %{__intltoolize}
@@ -111,9 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	autostartdir=%{_datadir}/gnome/autostart
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
-%find_lang %{name} --all-name --with-gnome
+%find_lang %{name} --with-gnome --with-omf --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -151,15 +154,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/gnome-power-preferences.desktop
 %{_desktopdir}/gnome-power-statistics.desktop
 %{_iconsdir}/hicolor/*/*/*
-%dir %{_omf_dest_dir}/gnome-power-manager
-%{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-C.omf
-%lang(ca) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-ca.omf
-%lang(es) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-es.omf
-%lang(fr) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-fr.omf
-%lang(hu) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-hu.omf
-%lang(it) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-it.omf
-%lang(oc) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-oc.omf
-%lang(pa) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-pa.omf
-%lang(ru) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-ru.omf
-%lang(sv) %{_omf_dest_dir}/gnome-power-manager/gnome-power-manager-sv.omf
 %{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
