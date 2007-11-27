@@ -30,10 +30,10 @@ BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.20.0
 BuildRequires:	pkgconfig
-# support for --with-omf in find-lang.sh
-BuildRequires:	rpm-build >= 4.4.9-10
+BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
+BuildRequires:	sed >= 4.0
 Requires(post,preun):	GConf2
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
@@ -93,7 +93,7 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %patch0 -p1
 %patch1 -p1
 
-sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
 mv -f po/sr\@{Latn,latin}.po
 
 %build
