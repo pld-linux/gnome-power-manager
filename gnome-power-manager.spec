@@ -1,34 +1,35 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.20.2
+Version:	2.22.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	8a38e3a169b80c44639f4383a64835d0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	43c76a13a803a5c034f310bb20f91ff4
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-popt.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.73
+BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-doc-utils
-BuildRequires:	gnome-keyring-devel >= 2.20.0
-BuildRequires:	gnome-panel-devel >= 2.20.0
-BuildRequires:	gtk+2-devel >= 1:2.12.0
-BuildRequires:	gtkunique-devel >= 0.9.1
+BuildRequires:	gnome-doc-utils >= 0.12.1
+BuildRequires:	gnome-keyring-devel >= 2.22.0
+BuildRequires:	gnome-panel-devel >= 2.22.0
+BuildRequires:	gtk+2-devel >= 1:2.12.8
 BuildRequires:	gstreamer-devel >= 0.10.14
-BuildRequires:	hal-devel >= 0.5.9
-BuildRequires:	intltool >= 0.36.1
+BuildRequires:	hal-devel >= 0.5.10
+BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.20.0
+BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.20.0
+BuildRequires:	libwnck-devel >= 2.22.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -38,7 +39,7 @@ Requires(post,preun):	GConf2
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
-Requires:	gnome-session >= 2.20.0
+Requires:	gnome-session >= 2.22.0
 Requires:	notification-daemon >= 0.3.5
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
@@ -93,15 +94,15 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %patch0 -p1
 %patch1 -p1
 
-sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
-mv -f po/sr\@{Latn,latin}.po
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv -f po/sr@{Latn,latin}.po
 
 %build
 %{__libtoolize}
 %{__intltoolize}
 %{__aclocal}
-%{__autoheader}
 %{__automake}
+%{__autoheader}
 %{__autoconf}
 %configure \
 	--enable-xevents \
@@ -136,13 +137,13 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_bindir}/gnome-brightness-applet
-%attr(755,root,root) %{_bindir}/gnome-inhibit-applet
 %attr(755,root,root) %{_bindir}/gnome-power-bugreport.sh
 %attr(755,root,root) %{_bindir}/gnome-power-cmd.sh
 %attr(755,root,root) %{_bindir}/gnome-power-manager
 %attr(755,root,root) %{_bindir}/gnome-power-preferences
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
+%attr(755,root,root) %{_libdir}/gnome-brightness-applet
+%attr(755,root,root) %{_libdir}/gnome-inhibit-applet
 %{_libdir}/bonobo/servers/GNOME_BrightnessApplet.server
 %{_libdir}/bonobo/servers/GNOME_InhibitApplet.server
 %{_datadir}/gnome/autostart/gnome-power-manager.desktop
