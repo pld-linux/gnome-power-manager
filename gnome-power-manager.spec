@@ -1,16 +1,16 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.21.92
+Version:	2.22.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	bf7c9cb1c1ce32aea8a26e60d99c5343
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	43c76a13a803a5c034f310bb20f91ff4
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-popt.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
-BuildRequires:	GConf2-devel >= 2.21.90
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
@@ -19,18 +19,17 @@ BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-doc-utils >= 0.12.1
-BuildRequires:	gnome-keyring-devel >= 2.21.91
-BuildRequires:	gnome-panel-devel >= 2.21.91
+BuildRequires:	gnome-keyring-devel >= 2.22.0
+BuildRequires:	gnome-panel-devel >= 2.22.0
 BuildRequires:	gtk+2-devel >= 1:2.12.8
-BuildRequires:	gtkunique-devel >= 0.9.1
 BuildRequires:	gstreamer-devel >= 0.10.14
 BuildRequires:	hal-devel >= 0.5.10
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.21.91
+BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.21.91
+BuildRequires:	libwnck-devel >= 2.22.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -40,7 +39,7 @@ Requires(post,preun):	GConf2
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
-Requires:	gnome-session >= 2.21.91
+Requires:	gnome-session >= 2.22.0
 Requires:	notification-daemon >= 0.3.5
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
