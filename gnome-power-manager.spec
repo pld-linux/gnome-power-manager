@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.22.0
+Version:	2.22.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	43c76a13a803a5c034f310bb20f91ff4
+# Source0-md5:	bfb10f96771dd161ff16171f78a7dc21
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-popt.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
