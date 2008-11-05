@@ -10,6 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.24/%{name}
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	GConf2-devel >= 2.24.0
+BuildRequires:	PolicyKit-gnome-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
