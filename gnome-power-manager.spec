@@ -1,17 +1,18 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.24.4
+Version:	2.26.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	bad8bba644d31f88d92a11d8880feada
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.26/%{name}-%{version}.tar.bz2
+# Source0-md5:	a3d8815e143323083870f75e71fa1098
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
-BuildRequires:	GConf2-devel >= 2.24.0
-BuildRequires:	PolicyKit-gnome-devel
-BuildRequires:	autoconf >= 2.52
+BuildRequires:	DeviceKit-devel
+BuildRequires:	GConf2-devel >= 2.26.0
+BuildRequires:	PolicyKit-gnome-devel >= 0.8
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	docbook-dtd41-sgml
@@ -19,27 +20,27 @@ BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-keyring-devel >= 2.24.0
-BuildRequires:	gnome-panel-devel >= 2.24.0
-BuildRequires:	gstreamer-devel >= 0.10.14
-BuildRequires:	gtk+2-devel >= 1:2.12.8
+BuildRequires:	gnome-keyring-devel >= 2.26.0
+BuildRequires:	gnome-panel-devel >= 2.26.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	hal-devel >= 0.5.10
 BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libcanberra-gtk-devel >= 0.10
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libnotify-devel >= 0.4.4
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.24.0
+BuildRequires:	libwnck-devel >= 2.26.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	unique-devel >= 0.9.4
 Requires(post,postun):	gtk+2
-Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
+Requires:	DeviceKit-power >= 003
 Requires:	gnome-session >= 2.22.0
+Requires:	hicolor-icon-theme
 Requires:	notification-daemon >= 0.3.5
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
@@ -101,7 +102,6 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %{__autoheader}
 %{__autoconf}
 %configure \
-	--enable-xevents \
 	--disable-schemas-install \
 	--disable-scrollkeeper
 %{__make}
@@ -110,8 +110,7 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	autostartdir=%{_datadir}/gnome/autostart
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome --with-omf --all-name
 
@@ -142,7 +141,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gnome-inhibit-applet
 %{_libdir}/bonobo/servers/GNOME_BrightnessApplet.server
 %{_libdir}/bonobo/servers/GNOME_InhibitApplet.server
-%{_datadir}/gnome/autostart/gnome-power-manager.desktop
+%{_sysconfdir}/xdg/autostart/gnome-power-manager.desktop
 %{_datadir}/dbus-1/services/gnome-power-manager.service
 %{_datadir}/gnome-2.0/ui/GNOME_BrightnessApplet.xml
 %{_datadir}/gnome-2.0/ui/GNOME_InhibitApplet.xml
