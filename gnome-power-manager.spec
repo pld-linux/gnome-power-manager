@@ -1,16 +1,15 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.27.2
+Version:	2.27.5
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.27/%{name}-%{version}.tar.bz2
-# Source0-md5:	2e4092fb3fdbdf6ffb36911256c55271
+# Source0-md5:	2a987ee22fb611a575eff73baea12b4c
 URL:		http://www.gnome.org/projects/gnome-power-manager/
-BuildRequires:	DeviceKit-devel
+BuildRequires:	DeviceKit-power-devel >= 008
 BuildRequires:	GConf2-devel >= 2.26.0
-BuildRequires:	PolicyKit-gnome-devel >= 0.8
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
@@ -28,16 +27,17 @@ BuildRequires:	libcanberra-gtk-devel >= 0.10
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libnotify-devel >= 0.4.4
 BuildRequires:	libtool
+BuildRequires:	libunique-devel >= 0.9.4
 BuildRequires:	libwnck-devel >= 2.26.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-BuildRequires:	libunique-devel >= 0.9.4
+BuildRequires:	udev-glib-devel
 Requires(post,postun):	gtk+2
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	DeviceKit-power >= 003
+Requires:	DeviceKit-power >= 008
 Requires:	gnome-session >= 2.22.0
 Requires:	hicolor-icon-theme
 Requires:	notification-daemon >= 0.3.5
@@ -132,7 +132,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/gnome-power-bugreport.sh
-%attr(755,root,root) %{_bindir}/gnome-power-cmd.sh
 %attr(755,root,root) %{_bindir}/gnome-power-manager
 %attr(755,root,root) %{_bindir}/gnome-power-preferences
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
