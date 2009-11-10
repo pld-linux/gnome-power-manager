@@ -38,9 +38,9 @@ Requires(post,postun):	gtk+2
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	DeviceKit-power >= 008
+Requires:	dbus(org.freedesktop.Notifications)
 Requires:	gnome-session >= 2.22.0
 Requires:	hicolor-icon-theme
-Requires:	notification-daemon >= 0.3.5
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
