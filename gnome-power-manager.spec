@@ -14,6 +14,7 @@ BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	docbook-dtd41-sgml
+BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
@@ -78,9 +79,8 @@ Zastosowania infrastruktury zarządcy energii GNOME:
   aby pokazywał dwie baterie i przelicza ilość pozostałego czasu;
   powinna działać dla bezprzewodowych myszy i klawiatur, UPS-ów i PDA
 - demon wykonujący czyste zamknięcie systemu kiedy bateria jest w
-  stanie krytycznym i wykonujący zamrożenie systemu (soft-suspend)
-  przy zamykaniu pokrywy laptopa (albo naciśnięciu przycisku
-  "suspend")
+  stanie krytycznym i wykonujący zamrożenie systemu (soft-suspend) przy
+  zamykaniu pokrywy laptopa (albo naciśnięciu przycisku "suspend")
 - informowanie Totema, aby używał kodeka o niższej jakości w celu
   zaoszczędzenia energii baterii
 - wstrzymywanie indeksowania baz danych (np. up2date) i innych
