@@ -1,16 +1,16 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.28.3
+Version:	2.30.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	1fb329b8a6e9c63f46df1ea4bf3bb275
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.30/%{name}-%{version}.tar.bz2
+# Source0-md5:	2f47606d16d54915dc49a06364d208da
 URL:		http://www.gnome.org/projects/gnome-power-manager/
-BuildRequires:	DeviceKit-power-devel >= 008
 BuildRequires:	GConf2-devel >= 2.26.0
-BuildRequires:	autoconf >= 2.60
+BuildRequires:	UPower-devel
+BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	docbook-dtd41-sgml
@@ -19,12 +19,11 @@ BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-keyring-devel >= 2.26.0
 BuildRequires:	gnome-panel-devel >= 2.26.0
 BuildRequires:	gtk+2-devel >= 2:2.18.0
-BuildRequires:	hal-devel >= 0.5.10
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-gtk-devel >= 0.10
+BuildRequires:	libgnome-keyring-devel >= 2.26.0
 BuildRequires:	libnotify-devel >= 0.4.4
 BuildRequires:	libtool
 BuildRequires:	libunique-devel >= 0.9.4
@@ -34,10 +33,12 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	udev-glib-devel
+BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
 Requires(post,postun):	gtk+2
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	DeviceKit-power >= 008
+Requires:	ConsoleKit
+Requires:	UPower
 Requires:	dbus(org.freedesktop.Notifications)
 Requires:	gnome-session >= 2.22.0
 Requires:	hicolor-icon-theme
@@ -91,6 +92,9 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %prep
 %setup -q
 
+sed -i -e 's/^en@shaw//' po/LINGUAS
+rm -f po/en@shaw.po
+
 %build
 %{__libtoolize}
 %{__intltoolize}
@@ -100,7 +104,7 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %{__autoconf}
 %configure \
 	--disable-schemas-install \
-	--enable-policykit \
+	--disable-silent-rules \
 	--disable-scrollkeeper
 %{__make}
 
