@@ -1,24 +1,24 @@
-diff -urN gnome-power-manager-2.18.1/data/gnome-power-preferences.desktop.in gnome-power-manager-2.18.1.new/data/gnome-power-preferences.desktop.in
---- gnome-power-manager-2.18.1/data/gnome-power-preferences.desktop.in	2007-03-04 18:53:44.000000000 +0100
-+++ gnome-power-manager-2.18.1.new/data/gnome-power-preferences.desktop.in	2007-04-04 22:54:46.000000000 +0200
-@@ -6,7 +6,7 @@
+diff -ur gnome-power-manager-2.30.1/data/gnome-power-preferences.desktop.in gnome-power-manager-2.30.1.desktop/data/gnome-power-preferences.desktop.in
+--- gnome-power-manager-2.30.1/data/gnome-power-preferences.desktop.in	2010-04-26 11:13:29.000000000 +0200
++++ gnome-power-manager-2.30.1.desktop/data/gnome-power-preferences.desktop.in	2010-05-11 00:27:32.029611817 +0200
+@@ -5,7 +5,7 @@
  Exec=gnome-power-preferences
  Terminal=false
  Type=Application
--Categories=Settings;X-GNOME-SystemSettings;
-+Categories=GTK;GNOME;Settings;X-GNOME-SystemSettings;X-Capplet;
- OnlyShowIn=GNOME;
+-Categories=Settings;HardwareSettings;
++Categories=GNOME;GTK;Settings;HardwareSettings;
+ OnlyShowIn=GNOME;XFCE;
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
-diff -urN gnome-power-manager-2.18.1/data/gnome-power-statistics.desktop.in gnome-power-manager-2.18.1.new/data/gnome-power-statistics.desktop.in
---- gnome-power-manager-2.18.1/data/gnome-power-statistics.desktop.in	2007-03-04 18:53:44.000000000 +0100
-+++ gnome-power-manager-2.18.1.new/data/gnome-power-statistics.desktop.in	2007-04-04 22:56:54.000000000 +0200
-@@ -6,7 +6,7 @@
- Exec=gnome-power-statistics
+diff -ur gnome-power-manager-2.30.1/data/gnome-power-preferences.desktop.in.in gnome-power-manager-2.30.1.desktop/data/gnome-power-preferences.desktop.in.in
+--- gnome-power-manager-2.30.1/data/gnome-power-preferences.desktop.in.in	2010-03-31 17:24:07.000000000 +0200
++++ gnome-power-manager-2.30.1.desktop/data/gnome-power-preferences.desktop.in.in	2010-05-11 00:27:44.769611550 +0200
+@@ -5,7 +5,7 @@
+ Exec=gnome-power-preferences
  Terminal=false
  Type=Application
--Categories=GNOME;GTK;System;X-Red-Hat-Base;
-+Categories=GNOME;GTK;System;Monitor;
- OnlyShowIn=GNOME;
+-Categories=Settings;HardwareSettings;
++Categories=GNOME;GTK;Settings;HardwareSettings;
+ OnlyShowIn=GNOME;XFCE;
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
