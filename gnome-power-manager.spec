@@ -1,16 +1,16 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.30.1
-Release:	2
+Version:	2.32.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	b85178b8db77db5d22e185430549a295
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.32/%{name}-%{version}.tar.bz2
+# Source0-md5:	9a08e85dce3ffb90775f15e3bda4adda
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	GConf2-devel >= 2.26.0
-BuildRequires:	UPower-devel
+BuildRequires:	UPower-devel >= 0.9.1
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
@@ -33,7 +33,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-BuildRequires:	udev-glib-devel
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
 Requires(post,postun):	gtk+2
 Requires(post,postun):	scrollkeeper
@@ -142,6 +141,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
 %attr(755,root,root) %{_libdir}/gnome-brightness-applet
 %attr(755,root,root) %{_libdir}/gnome-inhibit-applet
+%attr(755,root,root) %{_sbindir}/gnome-power-backlight-helper
 %{_libdir}/bonobo/servers/GNOME_BrightnessApplet.server
 %{_libdir}/bonobo/servers/GNOME_InhibitApplet.server
 %{_sysconfdir}/xdg/autostart/gnome-power-manager.desktop
@@ -152,5 +152,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome-power-manager
 %{_desktopdir}/gnome-power-preferences.desktop
 %{_desktopdir}/gnome-power-statistics.desktop
+%{_datadir}/polkit-1/actions/org.gnome.power.policy
 %{_iconsdir}/hicolor/*/*/*
 %{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
