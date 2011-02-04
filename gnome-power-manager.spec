@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.32.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.32/%{name}-%{version}.tar.bz2
@@ -34,14 +34,14 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
-Requires(post,postun):	gtk+2
+Requires(post,postun):	gtk-update-icon-cache
+Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	ConsoleKit
 Requires:	UPower
 Requires:	dbus(org.freedesktop.Notifications)
 Requires:	gnome-session >= 2.22.0
-Requires:	hicolor-icon-theme
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
