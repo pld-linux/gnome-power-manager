@@ -1,47 +1,45 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.32.0
-Release:	2
+Version:	2.91.90
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.32/%{name}-%{version}.tar.bz2
-# Source0-md5:	9a08e85dce3ffb90775f15e3bda4adda
-Patch0:		%{name}-desktop.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.91/%{name}-%{version}.tar.bz2
+# Source0-md5:	b644c561a04d7f82c792771fa073c073
 URL:		http://www.gnome.org/projects/gnome-power-manager/
-BuildRequires:	GConf2-devel >= 2.26.0
-BuildRequires:	UPower-devel >= 0.9.1
+BuildRequires:	GConf2-devel >= 2.32.0
 BuildRequires:	autoconf >= 2.65
-BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.74
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
+BuildRequires:	gnome-control-center-devel >= 2.90.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-panel-devel >= 2.26.0
-BuildRequires:	gtk+2-devel >= 2:2.18.0
+BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libcanberra-gtk-devel >= 0.10
+BuildRequires:	libcanberra-gtk3-devel >= 0.10
 BuildRequires:	libgnome-keyring-devel >= 2.26.0
-BuildRequires:	libnotify-devel >= 0.4.4
+BuildRequires:	libnotify-devel >= 0.7.0
 BuildRequires:	libtool
-BuildRequires:	libunique-devel >= 0.9.4
-BuildRequires:	libwnck-devel >= 2.26.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
-BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	scrollkeeper
+BuildRequires:	upower-devel >= 0.9.1
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
-Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	hicolor-icon-theme
+Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	scrollkeeper
-Requires(post,preun):	GConf2
 Requires:	ConsoleKit
-Requires:	UPower
 Requires:	dbus(org.freedesktop.Notifications)
-Requires:	gnome-session >= 2.22.0
+Requires:	gnome-session >= 2.90.0
+Requires:	gtk-update-icon-cache
+Requires:	hicolor-icon-theme
+Requires:	polkit
+Requires:	upower >= 0.9.1
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -91,10 +89,6 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 
 %prep
 %setup -q
-%patch0 -p1
-
-sed -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
 
 %build
 %{__libtoolize}
@@ -104,7 +98,6 @@ rm -f po/en@shaw.po
 %{__autoheader}
 %{__autoconf}
 %configure \
-	--disable-schemas-install \
 	--disable-silent-rules \
 	--disable-scrollkeeper
 %{__make}
@@ -121,37 +114,28 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install gnome-power-manager.schemas
 %scrollkeeper_update_post
 %update_icon_cache hicolor
-
-%preun
-%gconf_schema_uninstall gnome-power-manager.schemas
+%glib_compile_schemas
 
 %postun
 %scrollkeeper_update_postun
 %update_icon_cache hicolor
+%glib_compile_schemas
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/gnome-power-bugreport.sh
 %attr(755,root,root) %{_bindir}/gnome-power-manager
-%attr(755,root,root) %{_bindir}/gnome-power-preferences
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
-%attr(755,root,root) %{_libdir}/gnome-brightness-applet
-%attr(755,root,root) %{_libdir}/gnome-inhibit-applet
 %attr(755,root,root) %{_sbindir}/gnome-power-backlight-helper
-%{_libdir}/bonobo/servers/GNOME_BrightnessApplet.server
-%{_libdir}/bonobo/servers/GNOME_InhibitApplet.server
 %{_sysconfdir}/xdg/autostart/gnome-power-manager.desktop
 %{_datadir}/dbus-1/services/gnome-power-manager.service
-%{_datadir}/gnome-2.0/ui/GNOME_BrightnessApplet.xml
-%{_datadir}/gnome-2.0/ui/GNOME_InhibitApplet.xml
 %{_mandir}/man1/*.1*
+%{_datadir}/GConf/gsettings/org.gnome.power-manager.gschema.migrate
+%{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
 %{_datadir}/gnome-power-manager
-%{_desktopdir}/gnome-power-preferences.desktop
 %{_desktopdir}/gnome-power-statistics.desktop
 %{_datadir}/polkit-1/actions/org.gnome.power.policy
 %{_iconsdir}/hicolor/*/*/*
-%{_sysconfdir}/gconf/schemas/gnome-power-manager.schemas
