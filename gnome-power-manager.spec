@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	2.91.90
+Version:	2.91.92
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.91/%{name}-%{version}.tar.bz2
-# Source0-md5:	b644c561a04d7f82c792771fa073c073
+# Source0-md5:	790fe14d2bf379f6961c7079e3560b48
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	GConf2-devel >= 2.32.0
 BuildRequires:	autoconf >= 2.65
@@ -15,6 +15,7 @@ BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
+BuildRequires:	cairo-devel >= 1.0.0
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-control-center-devel >= 2.90.0
@@ -31,6 +32,10 @@ BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	scrollkeeper
 BuildRequires:	upower-devel >= 0.9.1
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
+BuildRequires:	xorg-lib-libXrandr-devel >= 1.3.0
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXrender-devel
+BuildRequires:	xorg-lib-libXext-devel
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	scrollkeeper
 Requires:	ConsoleKit
@@ -116,11 +121,13 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %scrollkeeper_update_post
 %update_icon_cache hicolor
+%update_icon_cache gnome
 %glib_compile_schemas
 
 %postun
 %scrollkeeper_update_postun
 %update_icon_cache hicolor
+%update_icon_cache gnome
 %glib_compile_schemas
 
 %files -f %{name}.lang
@@ -139,3 +146,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/gnome-power-statistics.desktop
 %{_datadir}/polkit-1/actions/org.gnome.power.policy
 %{_iconsdir}/hicolor/*/*/*
+%{_iconsdir}/gnome/*/*/*
