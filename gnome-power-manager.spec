@@ -54,7 +54,7 @@ Uses of GNOME Power Manager infrastructure
 - An icon that allows a user to dim the LCD screen with a slider, and
   does do automatically when going from mains to battery power on a
   laptop.
-- An icon, that when an additional battery is inserted, updates it's
+- An icon, that when an additional battery is inserted, updates its
   display to show two batteries and recalculates how much time
   remaining. Would work for wireless mouse and keyboards, UPS's and
   PDA's.
@@ -74,20 +74,21 @@ Zastosowania infrastruktury zarządcy energii GNOME:
   automatycznie rozpoczynające uprzejme zamykanie systemu, kiedy
   zasilanie jest w stanie krytycznym
 - ikona umożliwiająca użytkownikowi przyciemnienie ekranu LCD przy
-  użyciu suwaka i robi to automatycznie przy przełączaniu z głównego
-  źródła zasilania na baterie w laptopie
+  użyciu suwaka i robiąca to automatycznie przy przełączaniu z
+  głównego źródła zasilania na baterie w laptopie
 - ikona, która po dołożeniu dodatkowej baterii uaktualnia wskaźnik,
   aby pokazywał dwie baterie i przelicza ilość pozostałego czasu;
   powinna działać dla bezprzewodowych myszy i klawiatur, UPS-ów i PDA
-- demon wykonujący czyste zamknięcie systemu kiedy bateria jest w
+- demon wykonujący czyste zamknięcie systemu, kiedy bateria jest w
   stanie krytycznym i wykonujący zamrożenie systemu (soft-suspend) przy
   zamykaniu pokrywy laptopa (albo naciśnięciu przycisku "suspend")
 - informowanie Totema, aby używał kodeka o niższej jakości w celu
   zaoszczędzenia energii baterii
 - wstrzymywanie indeksowania baz danych (np. up2date) i innych
   ciężkich operacji do czasu podłączenia głównego źródła zasilania
-- zapobieganie uruchomienia screensaverów i wygaszaniu ekranu podczas
-  działania programów prezentacyjnych i odtwarzaczy filmów
+- zapobieganie uruchomieniu wygaszacza ekranu i samemu wygaszaniu
+  ekranu podczas działania programów prezentacyjnych i odtwarzaczy
+  filmów
 
 %prep
 %setup -q
