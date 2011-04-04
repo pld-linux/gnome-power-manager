@@ -11,11 +11,11 @@ URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	GConf2-devel >= 2.32.0
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
+BuildRequires:	cairo-devel >= 1.0.0
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
-BuildRequires:	cairo-devel >= 1.0.0
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-control-center-devel >= 2.90.0
@@ -31,15 +31,16 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	scrollkeeper
 BuildRequires:	upower-devel >= 0.9.1
-BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
-BuildRequires:	xorg-lib-libXrandr-devel >= 1.3.0
 BuildRequires:	xorg-lib-libX11-devel
-BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXrandr-devel >= 1.3.0
+BuildRequires:	xorg-lib-libXrender-devel
+BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
 Requires(post,postun):	glib2 >= 1:2.28.0
 Requires(post,postun):	scrollkeeper
 Requires:	ConsoleKit
 Requires:	dbus(org.freedesktop.Notifications)
+Requires:	gnome-icon-theme
 Requires:	gnome-session >= 2.90.0
 Requires:	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
