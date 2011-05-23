@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.0.0
+Version:	3.0.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	0696c5195b93f195da8c61ce6b1b84d6
+# Source0-md5:	7cb5d4492796d45b69637f730ff1ae20
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	GConf2-devel >= 2.32.0
 BuildRequires:	autoconf >= 2.65
@@ -18,7 +18,6 @@ BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gnome-control-center-devel >= 2.90.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
@@ -41,7 +40,7 @@ Requires(post,postun):	scrollkeeper
 Requires:	ConsoleKit
 Requires:	dbus(org.freedesktop.Notifications)
 Requires:	gnome-icon-theme
-Requires:	gnome-session >= 2.90.0
+Requires:	gnome-session >= 3.0.0
 Requires:	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
 Requires:	polkit
