@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.0.2
-Release:	2
+Version:	3.1.90
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	7cb5d4492796d45b69637f730ff1ae20
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.1/%{name}-%{version}.tar.xz
+# Source0-md5:	06ad80c739b89fd75f5eb00ca3d14f6e
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	GConf2-devel >= 2.32.0
 BuildRequires:	autoconf >= 2.65
@@ -133,18 +133,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_bindir}/gnome-power-bugreport.sh
-%attr(755,root,root) %{_bindir}/gnome-power-manager
+%doc AUTHORS ChangeLog NEWS README
+#%attr(755,root,root) %{_bindir}/gnome-power-bugreport.sh
+#%attr(755,root,root) %{_bindir}/gnome-power-manager
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
-%attr(755,root,root) %{_sbindir}/gnome-power-backlight-helper
-%{_sysconfdir}/xdg/autostart/gnome-power-manager.desktop
-%{_datadir}/dbus-1/services/gnome-power-manager.service
+#%attr(755,root,root) %{_sbindir}/gnome-power-backlight-helper
+#%{_sysconfdir}/xdg/autostart/gnome-power-manager.desktop
+#%{_datadir}/dbus-1/services/gnome-power-manager.service
 %{_mandir}/man1/*.1*
-%{_datadir}/GConf/gsettings/org.gnome.power-manager.gschema.migrate
+#%{_datadir}/GConf/gsettings/org.gnome.power-manager.gschema.migrate
 %{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
 %{_datadir}/gnome-power-manager
 %{_desktopdir}/gnome-power-statistics.desktop
-%{_datadir}/polkit-1/actions/org.gnome.power.policy
+#%{_datadir}/polkit-1/actions/org.gnome.power.policy
 %{_iconsdir}/hicolor/*/*/*
 %{_iconsdir}/gnome/*/*/*
