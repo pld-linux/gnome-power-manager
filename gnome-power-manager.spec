@@ -2,7 +2,7 @@ Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
 Version:	2.32.0
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.32/%{name}-%{version}.tar.bz2
@@ -10,7 +10,6 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/2.32/%{name}
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	GConf2-devel >= 2.26.0
-BuildRequires:	UPower-devel >= 0.9.1
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
@@ -33,15 +32,16 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
+BuildRequires:	upower-devel >= 0.9.1
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	ConsoleKit
-Requires:	UPower
 Requires:	dbus(org.freedesktop.Notifications)
 Requires:	gnome-session >= 2.22.0
+Requires:	upower
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -74,8 +74,8 @@ Zastosowania infrastruktury zarządcy energii GNOME:
   automatycznie rozpoczynające uprzejme zamykanie systemu, kiedy
   zasilanie jest w stanie krytycznym
 - ikona umożliwiająca użytkownikowi przyciemnienie ekranu LCD przy
-  użyciu suwaka i robiąca to automatycznie przy przełączaniu z
-  głównego źródła zasilania na baterie w laptopie
+  użyciu suwaka i robiąca to automatycznie przy przełączaniu z głównego
+  źródła zasilania na baterie w laptopie
 - ikona, która po dołożeniu dodatkowej baterii uaktualnia wskaźnik,
   aby pokazywał dwie baterie i przelicza ilość pozostałego czasu;
   powinna działać dla bezprzewodowych myszy i klawiatur, UPS-ów i PDA
