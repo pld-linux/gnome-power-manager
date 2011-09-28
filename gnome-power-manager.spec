@@ -1,14 +1,13 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.0.2
-Release:	2
+Version:	3.2.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	7cb5d4492796d45b69637f730ff1ae20
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.2/%{name}-%{version}.tar.xz
+# Source0-md5:	4dafea2ae923599685f91de033f23888
 URL:		http://www.gnome.org/projects/gnome-power-manager/
-BuildRequires:	GConf2-devel >= 2.32.0
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.0.0
@@ -21,29 +20,20 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libcanberra-gtk3-devel >= 0.10
-BuildRequires:	libgnome-keyring-devel >= 2.26.0
-BuildRequires:	libnotify-devel >= 0.7.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	scrollkeeper
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	upower-devel >= 0.9.1
-BuildRequires:	xorg-lib-libX11-devel
-BuildRequires:	xorg-lib-libXext-devel
-BuildRequires:	xorg-lib-libXrandr-devel >= 1.3.0
-BuildRequires:	xorg-lib-libXrender-devel
-BuildRequires:	xorg-proto-xproto-devel >= 7.0.15
+BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.28.0
 Requires(post,postun):	scrollkeeper
-Requires:	ConsoleKit-x11
-Requires:	dbus(org.freedesktop.Notifications)
 Requires:	gnome-icon-theme
 Requires:	gnome-session >= 3.0.0
 Requires:	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
-Requires:	polkit
 Requires:	upower >= 0.9.1
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
@@ -133,18 +123,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_bindir}/gnome-power-bugreport.sh
-%attr(755,root,root) %{_bindir}/gnome-power-manager
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
-%attr(755,root,root) %{_sbindir}/gnome-power-backlight-helper
-%{_sysconfdir}/xdg/autostart/gnome-power-manager.desktop
-%{_datadir}/dbus-1/services/gnome-power-manager.service
 %{_mandir}/man1/*.1*
-%{_datadir}/GConf/gsettings/org.gnome.power-manager.gschema.migrate
 %{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
 %{_datadir}/gnome-power-manager
 %{_desktopdir}/gnome-power-statistics.desktop
-%{_datadir}/polkit-1/actions/org.gnome.power.policy
 %{_iconsdir}/hicolor/*/*/*
-%{_iconsdir}/gnome/*/*/*
