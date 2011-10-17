@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.2.0
+Version:	3.2.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.2/%{name}-%{version}.tar.xz
-# Source0-md5:	4dafea2ae923599685f91de033f23888
+# Source0-md5:	8e8a3759e0805041342c1f49471ee4ed
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -67,8 +67,8 @@ Zastosowania infrastruktury zarządcy energii GNOME:
   automatycznie rozpoczynające uprzejme zamykanie systemu, kiedy
   zasilanie jest w stanie krytycznym
 - ikona umożliwiająca użytkownikowi przyciemnienie ekranu LCD przy
-  użyciu suwaka i robiąca to automatycznie przy przełączaniu z
-  głównego źródła zasilania na baterie w laptopie
+  użyciu suwaka i robiąca to automatycznie przy przełączaniu z głównego
+  źródła zasilania na baterie w laptopie
 - ikona, która po dołożeniu dodatkowej baterii uaktualnia wskaźnik,
   aby pokazywał dwie baterie i przelicza ilość pozostałego czasu;
   powinna działać dla bezprzewodowych myszy i klawiatur, UPS-ów i PDA
