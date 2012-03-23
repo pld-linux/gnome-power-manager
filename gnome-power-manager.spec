@@ -1,11 +1,11 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.2.1
+Version:	3.3.92
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.2/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.3/%{name}-%{version}.tar.xz
 # Source0-md5:	8e8a3759e0805041342c1f49471ee4ed
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.65
@@ -15,7 +15,7 @@ BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	glib2-devel >= 1:2.31.10
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+3-devel >= 3.0.0
@@ -24,12 +24,12 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
-BuildRequires:	scrollkeeper
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	upower-devel >= 0.9.1
 BuildRequires:	xz
-Requires(post,postun):	glib2 >= 1:2.28.0
+Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	scrollkeeper
+Requires:	glib2 >= 1:2.31.10
 Requires:	gnome-icon-theme
 Requires:	gnome-session >= 3.0.0
 Requires:	gtk-update-icon-cache
@@ -94,8 +94,7 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %{__autoheader}
 %{__autoconf}
 %configure \
-	--disable-silent-rules \
-	--disable-scrollkeeper
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -104,19 +103,17 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name} --with-gnome --with-omf --all-name
+%find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%scrollkeeper_update_post
 %update_icon_cache hicolor
 %update_icon_cache gnome
 %glib_compile_schemas
 
 %postun
-%scrollkeeper_update_postun
 %update_icon_cache hicolor
 %update_icon_cache gnome
 %glib_compile_schemas
