@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.6.0
+Version:	3.8.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	3bc0f6bf7040d3f4916def26359f20ee
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.8/%{name}-%{version}.tar.xz
+# Source0-md5:	0c07b0dd2f576ab6624f9cc9d5228abe
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -30,6 +30,7 @@ BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	glib2 >= 1:2.31.10
 Requires:	gnome-icon-theme
+Requires:	gnome-themes-standard
 Requires:	gnome-session >= 3.0.0
 Requires:	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
@@ -108,13 +109,13 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%update_icon_cache HighContrast
 %update_icon_cache hicolor
-%update_icon_cache gnome
 %glib_compile_schemas
 
 %postun
+%update_icon_cache HighContrast
 %update_icon_cache hicolor
-%update_icon_cache gnome
 %glib_compile_schemas
 
 %files -f %{name}.lang
@@ -123,6 +124,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
 %{_mandir}/man1/*.1*
 %{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
-%{_datadir}/gnome-power-manager
 %{_desktopdir}/gnome-power-statistics.desktop
+%{_iconsdir}/HighContrast/*/*/*
 %{_iconsdir}/hicolor/*/*/*
