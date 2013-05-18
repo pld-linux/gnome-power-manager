@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.8.1
+Version:	3.8.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	4c81d00328706517a53278f731371142
+# Source0-md5:	f6d16edbb5e539a9ba3e66d63e4799d0
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -30,8 +30,8 @@ BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires:	glib2 >= 1:2.31.10
 Requires:	gnome-icon-theme
-Requires:	gnome-themes-standard
 Requires:	gnome-session >= 3.0.0
+Requires:	gnome-themes-standard
 Requires:	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
 Requires:	upower >= 0.9.1
