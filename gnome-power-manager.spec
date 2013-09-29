@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.8.2
+Version:	3.10.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	f6d16edbb5e539a9ba3e66d63e4799d0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.10/%{name}-%{version}.tar.xz
+# Source0-md5:	c3a6a14fe5a98cf8060dd2288f83699a
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -15,7 +15,7 @@ BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.31.10
+BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+3-devel >= 3.3.8
@@ -28,7 +28,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	upower-devel >= 0.9.1
 BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	glib2 >= 1:2.31.10
+Requires:	glib2 >= 1:2.36.0
 Requires:	gnome-icon-theme
 Requires:	gnome-session >= 3.0.0
 Requires:	gnome-themes-standard
@@ -123,6 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
 %{_mandir}/man1/*.1*
+%{_datadir}/appdata/gnome-power-statistics.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
 %{_desktopdir}/gnome-power-statistics.desktop
 %{_iconsdir}/HighContrast/*/*/*
