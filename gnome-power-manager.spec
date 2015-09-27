@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.16.1
+Version:	3.18.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	dfe80c3fe370e790bac0a8837f2f5bc9
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	8281dc3a6c5c7ee52068e5027ee195c8
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	appdata-tools
 BuildRequires:	autoconf >= 2.65
@@ -16,7 +16,7 @@ BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.36.0
+BuildRequires:	glib2-devel >= 1:2.46.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+3-devel >= 3.3.8
@@ -28,9 +28,9 @@ BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	upower-devel >= 0.9.1
 BuildRequires:	xz
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.46.0
 Requires(post,postun):	gtk-update-icon-cache
-Requires:	glib2 >= 1:2.36.0
+Requires:	glib2 >= 1:2.46.0
 Requires:	gnome-icon-theme
 Requires:	gnome-session >= 3.0.0
 Requires:	gnome-themes-standard
