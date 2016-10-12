@@ -1,12 +1,12 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.20.0
+Version:	3.22.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.20/%{name}-%{version}.tar.xz
-# Source0-md5:	ea81d7e93acfdeb37f6627e3b3f6bdfc
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.22/%{name}-%{version}.tar.xz
+# Source0-md5:	8394bca7ec0c1215b741dcdcb8e59f04
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	appdata-tools
 BuildRequires:	autoconf >= 2.65
@@ -122,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
 %{_mandir}/man1/*.1*
-%{_datadir}/appdata/gnome-power-statistics.appdata.xml
+%{_datadir}/appdata/org.gnome.PowerStats.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
-%{_desktopdir}/gnome-power-statistics.desktop
+%{_desktopdir}/org.gnome.PowerStats.desktop
 %{_iconsdir}/hicolor/*/*/*
