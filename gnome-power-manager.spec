@@ -1,16 +1,14 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.24.0
+Version:	3.30.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	18da3d95a97ec51164a40e098b257fdb
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.30/%{name}-%{version}.tar.xz
+# Source0-md5:	762c9533d21996fd7a7fb1c5105cdfb6
 URL:		http://www.gnome.org/projects/gnome-power-manager/
 BuildRequires:	appdata-tools
-BuildRequires:	autoconf >= 2.65
-BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.0.0
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-dtd43-xml
@@ -21,6 +19,8 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+3-devel >= 3.3.8
 BuildRequires:	libtool
+BuildRequires:	meson
+BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.601
@@ -87,20 +87,13 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 %setup -q
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__automake}
-%{__autoheader}
-%{__autoconf}
-%configure \
-	--disable-silent-rules
-%{__make}
+%meson build
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -117,10 +110,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS README
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
 %{_mandir}/man1/*.1*
-%{_datadir}/appdata/org.gnome.PowerStats.appdata.xml
+%{_datadir}/metainfo/org.gnome.PowerStats.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
 %{_desktopdir}/org.gnome.PowerStats.desktop
 %{_iconsdir}/hicolor/*/*/*
