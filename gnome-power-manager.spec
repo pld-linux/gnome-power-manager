@@ -1,40 +1,35 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.30.0
+Version:	3.32.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.30/%{name}-%{version}.tar.xz
-# Source0-md5:	762c9533d21996fd7a7fb1c5105cdfb6
-URL:		http://www.gnome.org/projects/gnome-power-manager/
-BuildRequires:	appdata-tools
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.32/%{name}-%{version}.tar.xz
+# Source0-md5:	9349e6447c80bcbd71d5a4f1469f508e
+URL:		https://www.gnome.org/projects-old/gnome-power-manager/
 BuildRequires:	cairo-devel >= 1.0.0
 BuildRequires:	docbook-dtd41-sgml
-BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.46.0
-BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+3-devel >= 3.3.8
-BuildRequires:	libtool
-BuildRequires:	meson
-BuildRequires:	ninja
+BuildRequires:	meson >= 0.46.0
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
-BuildRequires:	rpmbuild(macros) >= 1.601
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	upower-devel >= 0.9.1
+BuildRequires:	upower-devel >= 0.99.8
 BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.46.0
 Requires(post,postun):	gtk-update-icon-cache
+Requires:	cairo >= 1.0.0
 Requires:	glib2 >= 1:2.46.0
-Requires:	gnome-icon-theme
 Requires:	gnome-session >= 3.0.0
-Requires:	gnome-themes-standard
+Requires:	gtk+3 >= 3.3.8
 Requires:	hicolor-icon-theme
-Requires:	upower >= 0.9.1
+Requires:	upower >= 0.99.8
 Obsoletes:	gnome-power
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -95,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %ninja_install -C build
 
-%find_lang %{name} --with-gnome --all-name
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -110,10 +105,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS README
+%doc AUTHORS MAINTAINERS README
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
-%{_mandir}/man1/*.1*
-%{_datadir}/metainfo/org.gnome.PowerStats.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
+%{_datadir}/metainfo/org.gnome.PowerStats.appdata.xml
 %{_desktopdir}/org.gnome.PowerStats.desktop
-%{_iconsdir}/hicolor/*/*/*
+%{_iconsdir}/hicolor/*x*/apps/org.gnome.PowerStats.png
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.PowerStats.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.PowerStats-symbolic.svg
+%{_mandir}/man1/gnome-power-statistics.1*
