@@ -1,13 +1,13 @@
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	3.32.0
+Version:	43.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-power-manager/3.32/%{name}-%{version}.tar.xz
-# Source0-md5:	9349e6447c80bcbd71d5a4f1469f508e
-URL:		https://www.gnome.org/projects-old/gnome-power-manager/
+Source0:	https://download.gnome.org/sources/gnome-power-manager/43/%{name}-%{version}.tar.xz
+# Source0-md5:	c7e33249b59c6082312909f65739912e
+URL:		https://gitlab.gnome.org/GNOME/gnome-power-manager
 BuildRequires:	cairo-devel >= 1.0.0
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
@@ -30,9 +30,7 @@ Requires:	gnome-session >= 3.0.0
 Requires:	gtk+3 >= 3.3.8
 Requires:	hicolor-icon-theme
 Requires:	upower >= 0.99.8
-Obsoletes:	gnome-power
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
+Obsoletes:	gnome-power < 0.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -83,6 +81,7 @@ Zastosowania infrastruktury zarządcy energii GNOME:
 
 %build
 %meson build
+
 %ninja_build -C build
 
 %install
@@ -105,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS MAINTAINERS README
+%doc AUTHORS COMMITMENT MAINTAINERS README.md
 %attr(755,root,root) %{_bindir}/gnome-power-statistics
 %{_datadir}/glib-2.0/schemas/org.gnome.power-manager.gschema.xml
 %{_datadir}/metainfo/org.gnome.PowerStats.appdata.xml
