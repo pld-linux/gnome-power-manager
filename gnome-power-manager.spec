@@ -1,19 +1,20 @@
+# TODO: use gtk4-update-icon-cache
 Summary:	GNOME Power Manager
 Summary(pl.UTF-8):	Zarządca energii dla GNOME
 Name:		gnome-power-manager
-Version:	43.0
+Version:	50.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/gnome-power-manager/43/%{name}-%{version}.tar.xz
-# Source0-md5:	c7e33249b59c6082312909f65739912e
+Source0:	https://download.gnome.org/sources/gnome-power-manager/50/%{name}-%{version}.tar.xz
+# Source0-md5:	541c76d6000fced2a3cc6bcc88f1d860
 URL:		https://gitlab.gnome.org/GNOME/gnome-power-manager
 BuildRequires:	cairo-devel >= 1.0.0
 BuildRequires:	docbook-dtd41-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.46.0
-BuildRequires:	gtk+3-devel >= 3.3.8
+BuildRequires:	gtk4-devel >= 4.0.0
 BuildRequires:	meson >= 0.46.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
@@ -27,7 +28,7 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires:	cairo >= 1.0.0
 Requires:	glib2 >= 1:2.46.0
 Requires:	gnome-session >= 3.0.0
-Requires:	gtk+3 >= 3.3.8
+Requires:	gtk4 >= 4.0.0
 Requires:	hicolor-icon-theme
 Requires:	upower >= 0.99.8
 Obsoletes:	gnome-power < 0.2
